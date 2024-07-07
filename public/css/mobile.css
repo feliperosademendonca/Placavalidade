@@ -1,0 +1,204 @@
+@media (max-width: 720px) {
+  table {
+    width: 100vw;
+    height: 60vh;
+    gap: 0px;
+    border-collapse: collapse;
+    text-align: center;
+    background-color: white;
+  }
+
+  #divFormLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    /*background-color: aqua;*/
+    width: 100%;
+    height: 90vh;
+    padding: 5px;
+    top: 5px;
+    min-width: 350px;
+  }
+
+  form {
+    /* background-color: rgb(16, 58, 58);*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+    height: 30vh;
+    padding: 0px;
+  }
+
+  #tudo > #divFormCadastro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espaço igual entre os botões */
+    min-width: 350px;
+  }
+
+  #divFormCadastro {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between; /* Espaço igual entre os botões */
+    min-width: 350px;
+  }
+
+  #inputEan,
+  #inputCodInt,
+  #inputInfo {
+    font-size: 1em;
+    padding: 3px;
+    margin: auto;
+    margin-top: 5px;
+    border: #004080 2px solid;
+    border-radius: 10px;
+    height: 40px;
+    padding: 5px;
+  }
+
+  #u,
+  #s {
+    font-size: 1em;
+    margin-top: 1em;
+    border: #004080 2px solid;
+    border-radius: 10px;
+    height: 40px;
+  }
+
+  #btnLogin:active {
+    display: block;
+    font-size: 0.8em;
+    padding: 2px;
+    margin: auto;
+    margin-top: 7px;
+    border: #ffffff 2px solid;
+    width: 215px;
+    background-color: #004080;
+    color: #fff;
+    text-align: center;
+    border-radius: 1px;
+    transition: 70ms;
+  }
+
+  ::placeholder {
+    padding: 5px;
+    text-align: center;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Remove a aparência padrão do navegador */
+    appearance: none; /* Remove a aparência padrão do navegador */
+    margin-top: 2%; /* Remove a margem padrão */
+  }
+
+  form input{
+    margin: 4px;
+    padding: 10px;
+    width: 217px;
+
+  }
+
+  #inputForm {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    border: #004080 2px solid;
+  }
+
+  #InputdataValidade,
+  #inputNumber {
+    width: 300px;
+    display: block;
+    font-weight: bold;
+    height: 30px;
+    padding: 0px;
+    text-align: center;
+  }
+
+  #inputForm > button {
+    width: 100px;
+    border-radius: 5px;
+    justify-content: space-around;
+  }
+
+  #buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin: 5px;
+  }
+
+  tr > #a1 {
+    font-size: 1.3em;
+    width: 100vw;
+    height: 40px;
+  }
+
+  #dataValidade {
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  #t0 {
+    display: none;
+  }
+
+  #b2 {
+    font-size: 10em;
+  }
+  #b3 {
+    font-size: 3em;
+  }
+
+  tr > #a6 {
+    display: none;
+  }
+
+  footer {
+    opacity: 10%;
+  }
+  
+ #contneinerLoading {
+    position: absolute;
+    display: flex;
+    background-color: #004080bc;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+  }
+
+  #loading {
+    width: 30%;
+    position: absolute;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+     animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

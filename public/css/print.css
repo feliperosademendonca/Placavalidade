@@ -1,0 +1,66 @@
+@media print {
+  * {
+    margin: 0mm;
+  }
+
+  *:not(table) {
+    margin: 0;
+  }
+
+  @page {
+    size: A4 landscape; /* Define tamanho A4 em paisagem */
+    margin: 0mm; /* Remove todas as margens padrão */
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+  }
+
+  #inputForm {
+    display: none;
+  }
+
+  table {
+    width: 98vw;
+    height: 99vh;
+  }
+
+  #b2 {
+    font-size: 19em !important;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  #b3 {
+    font-size: 3em;
+    margin: 0px;
+    padding: 0px;
+    height: auto;
+  }
+
+  #a1 {
+    font-size: 6em;
+    line-height: 0.8;
+    margin: 5px;
+  }
+
+  #a2,
+  #a4 {
+    font-size: 0.8em;
+    background-color: #000000;
+    color: #fff;
+  }
+
+  footer {
+    display: none;
+  }
+}

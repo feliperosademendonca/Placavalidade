@@ -1,0 +1,43 @@
+    <link rel="stylesheet" href="./estilo.css"><fieldset>
+        <fieldset id="fieldset-resultado">
+             <legend id="resultado">Resultado Pesquisado:{{pesquisado}}</legend>
+              <table id="tabelaResultado">
+    <thead>
+      <tr>
+        <th>EAN</th>
+        <th>CODIGO</th>
+        <th>DESCRIÇÃO</th>
+        <th>VALIDADE</th>
+        <th>QUANTIDADE</th>
+        <th>RUA</th>
+        <th>LADO</th>
+        <th>PREDIO</th>
+        <th>ANDAR</th>
+        <th>AÇÃO</th>
+      </tr>
+    </thead>
+    <tbody>
+       
+        {{#each objetosEncontrados}}
+        <tr>
+          <td>{{produtoNoEndereco.EAN}}</td>
+          <td>{{produtoNoEndereco.codigo}}</td>
+          <td>{{produtoNoEndereco.descricao}}</td>
+          <td>{{produtoNoEndereco.validade}}</td>
+          <td>{{produtoNoEndereco.quantidade}}</td>
+          <td>{{rua}}</td>
+          <td>{{lado}}</td>
+          <td>{{predio}}</td>
+          <td>{{andar}}</td>
+          <td><form action="/result" method="post">
+                  <button id="btnRmv" type="submit" class="btn btmRmv" value={{id}} name="btnRmv" >ID{{id}} </button>
+              </form>
+          </td>
+        </tr>
+      {{/each}}
+   <tr>   <th>TOTAL do Produto</th> <td></td><td></td><td></td><td>{{soma}}</td> <td></td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+
+        </fieldset>
+    </fieldset>
