@@ -48,35 +48,36 @@
     justify-content: space-between; /* Espaço igual entre os botões */
     min-width: 350px;
   }
-
+  
+  #u,
+  #s,
   #inputEan,
   #inputCodInt,
-  #inputInfo {
-    font-size: 1em;
+  #inputInfo,
+  #InputdataValidade,
+  #inputNumber {
     padding: 3px;
     margin: auto;
     margin-top: 5px;
-    border: #004080 2px solid;
-    border-radius: 10px;
+    border: #004080 1px solid;
     height: 40px;
     padding: 5px;
   }
 
+
+  /*
   #u,
   #s {
-    font-size: 1em;
-    margin-top: 1em;
-    border: #004080 2px solid;
-    border-radius: 10px;
-    height: 40px;
-  }
+      border: #004080 1px solid;
+     height: 40px;
+  }*/
 
   #btnLogin:active {
     display: block;
-    font-size: 0.8em;
-    padding: 2px;
+    font-size: 0.9em;
+    padding: 1px;
     margin: auto;
-    margin-top: 7px;
+    margin-top: 2px;
     border: #ffffff 2px solid;
     width: 215px;
     background-color: #004080;
@@ -95,8 +96,7 @@
   input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none; /* Remove a aparência padrão do navegador */
     appearance: none; /* Remove a aparência padrão do navegador */
-    margin-top: 2%; /* Remove a margem padrão */
-  }
+   }
 
   form input{
     margin: 4px;
@@ -111,10 +111,10 @@
     margin: auto;
     align-items: center;
     justify-content: center;
-    border: #004080 2px solid;
+    border: #004080 1px solid;
   }
 
-  #InputdataValidade,
+  /*#InputdataValidade,
   #inputNumber {
     width: 300px;
     display: block;
@@ -122,12 +122,11 @@
     height: 30px;
     padding: 0px;
     text-align: center;
-  }
+  }*/
 
   #inputForm > button {
     width: 100px;
-    border-radius: 5px;
-    justify-content: space-around;
+     justify-content: space-around;
   }
 
   #buttons {

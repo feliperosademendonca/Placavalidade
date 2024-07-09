@@ -46,11 +46,7 @@ form {
 
 #u,
 #s {
-  margin-top: 1em;
-  border: #004080 2px solid;
-  border-radius: 10px;
-  height: 40px;
-  text-align: center;
+   text-align: center;
 }
 
 #btnLogin,

@@ -114,7 +114,8 @@ function cad() {
     .then((response) => {
       if (response.status === 200) {
         // Redirecionar para a página após o logout
-        window.location.href = "/placa";
+        window.location.href = "/cadastro";
+
       } else {
         console.log(response.status);
         console.error("Erro 1 ao realizar o cadastro");
@@ -141,6 +142,8 @@ function placa() {
     .then((response) => {
       if (response.status === 200) {
         console.log(response.status);
+        window.location.href = "/placa";
+
       } else {
         console.log(response.status);
         console.error("Erro no logout");
