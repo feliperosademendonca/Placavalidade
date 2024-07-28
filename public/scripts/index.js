@@ -4,9 +4,7 @@ let respostaServidor; // Variável global para armazenar a resposta do servidor
 function login() {
   console.log("iniciou o login")
     const loading = document.getElementById('contneinerLoading');
-    
-    // Mostrar a animação de carregamento
-    loading.style.display = 'flex';
+        loading.style.display = 'flex';
 
   
     const u = document.getElementById("u").value;
@@ -25,23 +23,21 @@ function login() {
          if (data.success) {
           console.log("Login bem-sucedido. Redirecionando...");
    
-          window.location.href = "/placa"; // Redireciona para a página /placa
+          window.location.href = "/placa"; 
         } else {
           console.error("Erro:", data.message);
-          messageDiv.textContent = data.message; // Exibe a mensagem de erro para o usuário
+          messageDiv.textContent = data.message;  
         }
       })
       .catch((error) => {
         console.error("Erro:", error);
-        messageDiv.textContent = "Ocorreu um erro ao processar o login."; // Exibe a mensagem de erro para o usuário
+        messageDiv.textContent = "Ocorreu um erro ao processar o login.";  
       });
   }
 
 function enviarDados() {
   const loading = document.getElementById('contneinerLoading');
-    
-    // Mostrar a animação de carregamento
-    loading.style.display = 'flex';
+     loading.style.display = 'flex';
 
 
   const inputValor = document.getElementById("inputNumber").value;
@@ -49,9 +45,7 @@ function enviarDados() {
   if (inputValor == "") {
     alert("Digite um Codigo interno ou EAN do produto valido");
   } else {
-    console.log("Requisição enviada para /placa:", { inputValor, dateValor });
-
-    fetch("/placa", {
+     fetch("/placa", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -145,12 +139,12 @@ function placa() {
 
       } else {
         console.log(response.status);
-        console.error("Erro no logout");
+        window.location.href = "/placa";
       }
     })
     .catch((error) => {
       console.log(response.status);
-      console.error("Erro 2 ao realizar o logout:", error);
+      window.location.href = "/placa";
     });
 }
 
