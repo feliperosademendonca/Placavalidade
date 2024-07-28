@@ -169,7 +169,7 @@ app.post(
     let ean = req.body.ean;
     let codint = req.body.codint;
 
-    console.log(info, ean, codint);
+    console.log(`dados enviados para cadastro: ${info}, ${ean}, ${codint}`);
 
     try {
       const client = await pool.connect();

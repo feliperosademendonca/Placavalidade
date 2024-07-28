@@ -22,8 +22,7 @@ function login() {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
-        if (data.success) {
+         if (data.success) {
           console.log("Login bem-sucedido. Redirecionando...");
    
           window.location.href = "/placa"; // Redireciona para a página /placa
@@ -156,9 +155,8 @@ function placa() {
 }
 
  
-function cadastrar() {
+async function  cadastrar() {
   const loading = document.getElementById('contneinerLoading');
-    
     // Mostrar a animação de carregamento
     loading.style.display = 'flex';
 
@@ -171,24 +169,30 @@ function cadastrar() {
 
   try {
     
-    const response = fetch("/cadastro/dados", {
+    const  response =   await fetch("/cadastro/dados", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
+ 
+    if (response.status == 200) {
+      const result = await response.json();
+      alert("Cadastro realizado com sucesso")
+      window.location.href = "/placa";
 
-    if (response.ok) {
-      const result = response.json();
-      console.log(result.status);
     } else {
-      console.error("Erro ao enviar dados:", response.statusText);
+       alert("Erro ao Cadastrar!")
+      window.location.href = "/cadastro";
+
+
     }
   } catch (error) {
+    alert("Erro ao enviar dados:", error)
     console.error("Erro ao enviar dados:", error);
+ 
   }
 } 
 
-
-
+ 
