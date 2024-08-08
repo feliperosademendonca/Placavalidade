@@ -30,14 +30,20 @@ app.use((req, res, next) => {
 });
 
 // Configuração da ViewEngine
-// Configuração da ViewEngine
-app.engine("handlebars", handlebars.engine({
+
+/*
+ app.engine("handlebars", handlebars.engine({
   defaultLayout: "main",
   layoutsDir: path.join(__dirname, "views", "layouts")
 }));
 app.set("view engine", "handlebars");
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "views"));*/
 
+app.engine('.handlebars',  handlebars.engine({defaultLayout: 'main',extname: '.handlebars'}));
+app.set("view engine", "handlebars");
+
+
+ 
 // Rota index
 app.get("/", function (req, res) {
 
