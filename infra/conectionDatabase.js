@@ -7,6 +7,7 @@ const pool = new Pool({ connectionString: process.env.POSTGRES_URL });
 module.exports = pool;
 
 
+/*
 async function consultarBanco() {
   const client = await pool.connect();
   try {
@@ -28,7 +29,7 @@ consultarBanco()
   })
   .catch((error) => {
     console.error("Erro:", error);
-  });
+  });*/
 
 
  
