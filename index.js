@@ -62,6 +62,7 @@ app.post(
     }
     return res.status(200).send("Login bem-sucedido");
   }
+  
 );
 
 // Rota placa
