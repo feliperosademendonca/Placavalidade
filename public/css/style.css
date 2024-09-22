@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'ean13';
+  src: url('fonts/ean13.woff') format('woff'),
+       url('fonts/ean13.ttf') format('truetype');
+  font-weight: normal; /* Ou 'bold' se necessário */
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -178,6 +185,8 @@ th {
   font-weight: bold;
 }
 
+ 
+
 #b2 {
   width: 800px;
   font-size: 10em;
@@ -187,6 +196,17 @@ th {
   font-size: 2em;
   font-weight: bold;
 }
+
+ #a6{
+  transform: scaleX(4);
+
+ }
+
+.libre-barcode-ean13-text-regular {
+  font-family: "Libre Barcode EAN13 Text", system-ui;
+  font-weight: 400;
+  font-style: normal;
+ }
 
 #dataValidade {
   font-size: 4em;

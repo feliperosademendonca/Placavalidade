@@ -1,6 +1,9 @@
 require("dotenv").config();
 
 function processarDatas(dataValidade) {
+
+  
+
   console.log("chamou ProcessarDatas " + dataValidade);
 
   if (!dataValidade) {

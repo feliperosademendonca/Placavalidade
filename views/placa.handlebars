@@ -25,17 +25,7 @@
       <td id="b2" rowspan="8">{{mes}}</td></tr>
     <tr><th id="a4">CÓDIGO EAN</th></tr>
     <tr><td id="a5">{{ean}}</td></tr>
-    <tr id="trBarcode"><td id="a6">
-        <svg
-          class="barcode"
-          jsbarcode-format="upc"
-          jsbarcode-value={{ean}}
-          jsbarcode-textmargin="0"
-          jsbarcode-fontoptions="bold"
-        >
-        </svg>
-      </td>
-    </tr>
+    <tr ><td id="a6"class="libre-barcode-ean13-text-regular">{{ean}}</td></tr>
     <tr><th id="a7">DATA DO RECEBIMENTO</th></tr>
     <tr><td id="a8">{{dataDeRecebimento}}</td></tr>
     <tr><th id="a9">DATA DE VALIDADE</th></tr>

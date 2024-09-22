@@ -58,6 +58,8 @@ function enviarDados() {
         } else {
           console.log(response.status);
           console.error("Erro ao consultar produto");
+          alert("Produto nao localizado")
+          window.location.href = "/placa"; 
         }
       })
       .then((data) => {
