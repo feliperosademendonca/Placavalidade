@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 
 // Configuração do middleware de sessão
 app.use(session({
-  secret: 'sua-chave-secreta', // Deve ser uma chave secreta segura
+  secret: process.env.SESSION_SECRET, // Deve ser uma chave secreta segura
   resave: false,               // Evita salvar a sessão se ela não for modificada
   saveUninitialized: false,    // Não salva sessões vazias
   cookie: { secure: false }    // `secure: true` se usar HTTPS
