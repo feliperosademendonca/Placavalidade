@@ -26,12 +26,18 @@ function login() {
           window.location.href = "/placa"; 
         } else {
           console.error("Erro:", data.message);
-          messageDiv.textContent = data.message;  
+         // messageDiv.textContent = data.message;
+          alert(data.message)
+          window.location.href = "/";   
         }
       })
       .catch((error) => {
         console.error("Erro:", error);
-        messageDiv.textContent = "Ocorreu um erro ao processar o login.";  
+       // messageDiv.textContent = "Ocorreu um erro ao processar o login.";  
+       alert(data.message)
+
+        window.location.href = "/";   
+
       });
   }
 

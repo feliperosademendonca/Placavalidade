@@ -35,9 +35,7 @@ exports.checkLoginStatus = (req, res,next) => {
     console.log("logado com sucesso") ; // O usuário está logado
     return next()
   } else {
-    console.log("Não está logado") ;// Não está logado
-    return  
-
-
+    console.log("Não está logado"); // Não está logado
+    return res.redirect('/'); // Redireciona para a página inicial
   }
 };

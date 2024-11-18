@@ -12,12 +12,12 @@ function Placa (){
                     />
                     <input type="date" id="inputDataValidade" />
                     <div id="buttons">
-                    <button type="button" onclick="enviarDados()">Gerar Placa</button>
-                    <button id="printButton" onclick=" print()">Imprimir</button>
-                    <button onclick="cad()">Cadastro</button>
-                    <button onclick="sair()">Sair</button>
+                    <button type="button" onClick="enviarDados()">Gerar Placa</button>
+                    <button id="printButton" onClick=" print()">Imprimir</button>
+                    <button onClick="cad()">Cadastro</button>
+                    <button onClick="sair()">Sair</button>
                     </div>
-                </form>
+                </form> 
                 <div>
                     <table id="tb">
                         <tr id="t0"><th id="a0">Info Impressão</th><td id="b0"> </td></tr>
