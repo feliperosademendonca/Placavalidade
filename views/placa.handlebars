@@ -34,6 +34,56 @@
       <td id="b3" rowspan="4">{{ano}}</td></tr>
     <tr><td id="a12">{{diasParaVencer}}</td></tr>
     <tr><th id="a13">CONFERENTE</th></tr>
-    <tr><td id="a14">{{u}}</td></tr>
+    <tr><td id="a14">{{username}}</td></tr>
   </table>
+
+</div
+  <!--Scripts-->
+<div>
+  <script>
+    // Quando o DOM estiver completamente carregado, executa a função
+    document.addEventListener('DOMContentLoaded', () => {
+      const token = localStorage.getItem('authToken');
+
+      // Verifica se o token está presente
+      if (!token) {
+        console.error("Token não encontrado no localStorage");
+        alert("Token não encontrado");
+        return;  // Interrompe a execução se o token não for encontrado
+      }
+
+      // Faz a requisição após o carregamento do DOM
+      fetch('/placa', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': "Bearer " + token
+        }
+      })
+      .then(response => {
+        console.log('Status da resposta:', response.status);
+        if (!response.ok) {  // Se a resposta não for OK, rejeita com erro
+          throw new Error('Erro na requisição com status: ' + response.status);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Resposta do servidor:', data);
+
+        // Aqui é onde o nome será inserido na célula da tabela
+        const nameElement = document.getElementById('a14');
+        if (nameElement && data.user.name) {
+          nameElement.textContent = data.user.name;  // Substitui o texto da célula com o valor de data.name
+        } else {
+          console.error("Elemento ou 'data.name' não encontrado.");
+        }
+      })
+      .catch(error => {
+        console.error('Erro na requisição:', error);
+        alert("Erro: " + error.message);  // Exibe o erro no alert
+      });
+    });
+  </script>
+
+
 </div>
