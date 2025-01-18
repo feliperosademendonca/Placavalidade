@@ -1,6 +1,54 @@
-<div id="tudo">
-  <h1>Informações do Produto</h1>
-  <p>EAN: {{ean}}</p>
-  <p>Codint: {{codint}}</p>
-  <p>Info: {{info}}</p>
-</div>
+ 
+  <title>Gerar PDF no Cliente</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+ 
+<body>
+   <table id="tb">
+           <tr id="t0"><th id="a0">Info Impressão</th> <td id="b0">xx/xx/xxxx as xx:xx:xx</td></tr>
+          <tr><th id="a1" colspan='2'>{{info}}info</th></tr>
+          <tr ><th id="a2">CÓDIGO DO PRODUTO</th> <th id="b1">MÊS/ANO</th></tr>
+          <tr><td id="a3">{{codInt}}</td> <td id="b2"rowspan='8'>xx</th></tr>
+          <tr><th id="a4">CÓDIGO EAN</th> </tr>
+          <tr><td id="a5">{{ean}}</td> </tr>
+          <tr ><td id="a6"> <svg class="barcode" id="barcode"
+              jsbarcode-format="upc"
+              jsbarcode-textmargin="0"
+              jsbarcode-fontoptions="normal">
+          </svg></td></tr>
+          <tr><th id="a7">DATA DO RECEBIMENTO</th> </tr>
+          <tr><td id="a8">{{date}}</td> </tr>
+          <tr><th id="a9" >DATA DE VALIDADE</th> </tr>
+          <tr><td id="dataValidade">xx/xx/xx</td> </tr>
+          <tr><th id="a11">DIAS PARA VENCER</th> <td id="b3" rowspan="4">xxxx</th> </tr>
+          <tr><td id="a12">xx/xx/xx</td> </tr>
+          <tr><th id="a13">CONFERENTE</th> </tr>
+          <tr><td id="a14">xxx</td> </tr>
+      </table>
+  </div>
+  <button id="generatePDF">Gerar PDF</button>
+
+  <script>
+    document.getElementById('generatePDF').addEventListener('click', () => {
+      const { jsPDF } = window.jspdf;
+      const element = document.getElementById('content');
+
+      // Captura o elemento e converte para imagem
+      domtoimage.toPng(element)
+        .then(dataUrl => {
+          const pdf = new jsPDF();
+
+          // Define o tamanho do PDF proporcional à imagem
+          const imgWidth = 210; // Largura da página A4 em mm
+          const imgHeight = (element.offsetHeight * imgWidth) / element.offsetWidth;
+
+          pdf.addImage(dataUrl, 'PNG', 0, 0, imgWidth, imgHeight);
+          pdf.save('documento.pdf'); // Baixa o arquivo no navegador
+        })
+        .catch(error => {
+          console.error('Erro ao gerar PDF:', error);
+        });
+    });
+  </script>
+</body>
+ 

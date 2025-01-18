@@ -1,5 +1,6 @@
 module.exports =async  (req,res)=> {
   const {n,d} = req.body
+ 
 const inputValor = n;
 const dataValidade = d;
 

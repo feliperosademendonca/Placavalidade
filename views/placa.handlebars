@@ -1,5 +1,6 @@
 <title>Placa de Validade RM / Placa</title>
 <div id="tudo">
+
   <form id="inputForm">
     <input
       type="number"
@@ -10,7 +11,7 @@
     <input type="date" id="inputDataValidade" />
     <div id="buttons">
       <button type="button" onclick="enviarDados()">Gerar Placa</button>
-      <button id="printButton" onclick=" print()">Imprimir</button>
+      <button id="printButton" onclick=" printPdf()">ImprimirPDF</button>
       <button onclick="cad()">Cadastro</button>
       <button onclick="sair()">Sair</button>
     </div>
@@ -87,7 +88,10 @@
 
 
 </div>
+<div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 
+</div>
 <Script>
   
 
@@ -97,6 +101,12 @@ async function enviarDados(){
 const n = document.getElementById("inputNumber").value;
 console.log("Elemento Data:", d);
 console.log("Elemento Número:", n);
+ // Mostrar a animação de carregamento
+  loading.style.display = "flex";
+
+  if(n==""|| d== ""){
+    return alert("Verifique os dados informados")
+  }
   const token = localStorage.getItem('authToken');
    fetch('/placa/pesquisa', {
         method: 'POST',

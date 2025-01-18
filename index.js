@@ -64,16 +64,31 @@ app.post("/placa", loginController.checkLoginStatus, (req, res) => {
 
 // Rota placaPOST
 app.post("/placa/pesquisa", loginController.checkLoginStatus, async (req, res) => {
-  const dadosPlaca = require ('./controller/dadosPlaca')
-  let result = await dadosPlaca(req,res)
-  console.log("Retorno result",result)
-  return res.json({ user: req.user, result: result });
-});
+  try {
+    const dadosPlaca = require ('./controller/dadosPlaca')
+    let result = await dadosPlaca(req,res) 
+    // Verifique se o resultado não é undefined ou null antes de enviar a resposta
+    if (!result) {
+      return res.status(404).json({ error: 'Resultado não encontrado' });
+    }
 
+    // Envia a resposta apenas uma vez
+    res.json({ user: req.user, result: result });
+
+  } catch (error) {
+    // Se houver erro, envia a resposta com um código de erro
+    console.error(error);
+    res.status(500).json({ error: 'Erro no servidor' });
+  }
+}); 
 
 // Rota cadastroGET
 app.get("/cadastro", loginController.checkLoginStatus, (req, res) => {
   res.render("cadastro", { username: res.locals.username });
+});
+
+ app.get("/teste",   (req, res) => {
+  res.render("teste" );
 });
 
 // Rota cadastroPOST
