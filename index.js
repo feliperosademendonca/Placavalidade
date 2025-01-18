@@ -61,10 +61,15 @@ app.post("/placa", loginController.checkLoginStatus, (req, res) => {
   return res.json({ user: req.user });
 });
 
-// Rota pesquisaGET
-app.get("/pesquisa", loginController.checkLoginStatus, (req, res) => {
-  res.render("pesquisa", { username: res.locals.username });
+
+// Rota placaPOST
+app.post("/placa/pesquisa", loginController.checkLoginStatus, async (req, res) => {
+  const dadosPlaca = require ('./controller/dadosPlaca')
+  let result = await dadosPlaca(req,res)
+  console.log("Retorno result",result)
+  return res.json({ user: req.user, result: result });
 });
+
 
 // Rota cadastroGET
 app.get("/cadastro", loginController.checkLoginStatus, (req, res) => {
@@ -104,14 +109,7 @@ app.get("/sair", loginController.checkLoginStatus, (req, res) => {
   console.log("chamou a rota sair");
   console.log("Antes de destruir a sessão:", req.session);
 
-  req.session.destroy((err) => {
-    if (err) {
-      console.error("Erro ao encerrar a sessão:", err);
-      return res.status(500).send("Erro ao encerrar a sessão");
-    }
-    console.log("Sessão destruída com sucesso.");
-    return res.status(200).send("Finalizando Sessão");
-  });
+   
 });
 
 // Rota para endereço público

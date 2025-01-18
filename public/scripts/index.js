@@ -48,31 +48,7 @@ function cad() {
       window.location.href = "/cadastro";
     });
 }
-/*
-function placa() {
-  const loading = document.getElementById("contneinerLoading");
 
-  // Mostrar a animação de carregamento
-  loading.style.display = "flex";
-
-  fetch("/placa", {
-    method: "GET",
-  })
-    .then((response) => {
-      if (response.status === 200) {
-        console.log(response.status);
-        window.location.href = "/placa";
-      } else {
-        console.log(response.status);
-        window.location.href = "/placa";
-      }
-    })
-    .catch((error) => {
-      console.log(response.status);
-      window.location.href = "/placa";
-    });
-}
-*/
 async function cadastrar() {
   const loading = document.getElementById("contneinerLoading");
   // Mostrar a animação de carregamento

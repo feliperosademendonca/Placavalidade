@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-function processarDatas(dataValidade) {
+module.exports = function processarDatas(dataValidade) {
 
   
 
@@ -65,5 +65,4 @@ function processarDatas(dataValidade) {
 
   return datas;
 }
-
-module.exports = { processarDatas };
+ 

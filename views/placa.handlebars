@@ -18,23 +18,23 @@
 
   <table id="tb">
     <tr id="t0"><th id="a0">Info Impressão</th>
-      <td id="b0">{{dataHora}}</td></tr>
-    <tr><th id="a1" colspan="2">{{info}}</th></tr>
+      <td id="b0">dataHora</td></tr>
+    <tr><th id="a1" colspan="2">info</th></tr>
     <tr><th id="a2">CÓDIGO DO PRODUTO</th> <th id="b1">MÊS/ANO</th></tr>
-    <tr><td id="a3">{{codint}}</td>
-      <td id="b2" rowspan="8">{{mes}}</td></tr>
+    <tr><td id="a3">codint</td>
+      <td id="b2" rowspan="8">mes</td></tr>
     <tr><th id="a4">CÓDIGO EAN</th></tr>
-    <tr><td id="a5">{{ean}}</td></tr>
-    <tr ><td id="a6"class="libre-barcode-ean13-text-regular">{{ean}}</td></tr>
+    <tr><td id="a5">ean</td></tr>
+    <tr ><td id="a6"class="libre-barcode-ean13-text-regular">ean</td></tr>
     <tr><th id="a7">DATA DO RECEBIMENTO</th></tr>
-    <tr><td id="a8">{{dataDeRecebimento}}</td></tr>
+    <tr><td id="a8">dataDeRecebimento</td></tr>
     <tr><th id="a9">DATA DE VALIDADE</th></tr>
-    <tr><td id="dataValidade">{{dataValidade}}</td></tr>
+    <tr><td id="dataValidade">dataValidade</td></tr>
     <tr><th id="a11">DIAS PARA VENCER</th>
-      <td id="b3" rowspan="4">{{ano}}</td></tr>
-    <tr><td id="a12">{{diasParaVencer}}</td></tr>
+      <td id="b3" rowspan="4">ano</td></tr>
+    <tr><td id="a12">diasParaVencer</td></tr>
     <tr><th id="a13">CONFERENTE</th></tr>
-    <tr><td id="a14">{{username}}</td></tr>
+    <tr><td id="a14">username</td></tr>
   </table>
 
 </div
@@ -87,3 +87,73 @@
 
 
 </div>
+
+<Script>
+  
+
+
+async function enviarDados(){
+  const d = document.getElementById("inputDataValidade").value;
+const n = document.getElementById("inputNumber").value;
+console.log("Elemento Data:", d);
+console.log("Elemento Número:", n);
+  const token = localStorage.getItem('authToken');
+   fetch('/placa/pesquisa', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': "Bearer " + token
+        },
+                  body: JSON.stringify({ d, n }) // Envia os dados ao servidor
+
+      })
+      .then(response => {
+        console.log('Status da resposta:', response.status);
+        if (!response.ok) {  // Se a resposta não for OK, rejeita com erro
+          throw new Error('Erro na requisição com status: ' + response.status);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Resposta do servidor:', data);
+
+        // Aqui é onde o nome será inserido na célula da tabela
+        const nameElement = document.getElementById('a14');
+        if (nameElement && data.user.name) {
+          nameElement.textContent = data.user.name;  // Substitui o texto da célula com o valor de data.name
+        } else {
+          console.error("Elemento ou 'data.name' não encontrado.");
+        }
+
+        console.log("\n",data.result.info,"\n")
+
+        let info = document.getElementById('a1');
+        info.innerText = data.result.info;
+        let codint = document.getElementById('a3');
+        codint.innerText = data.result.codint;
+        let ean = document.getElementById('a5');
+        ean.innerText = data.result.ean;
+        let codBarras = document.getElementById('a6');
+        codBarras.innerText = data.result.ean;
+        let dataRecebimento = document.getElementById('a8');
+        dataRecebimento.innerText = data.result.dataRecebimento;
+        let dataValidade = document.getElementById('dataValidade');
+        dataValidade.innerText = data.result.dataValidade;
+        let diasParaVencer = document.getElementById('a12');
+        diasParaVencer.innerText = data.result.diasParaVencer;
+        let dia = document.getElementById('b2');
+        dia.innerText = data.result.dia;
+        let ano = document.getElementById('b3');
+        ano.innerText = data.result.ano;
+        
+
+      })
+      .catch(error => {
+        console.error('Erro na requisição:', error);
+        alert("Erro: " + error.message);  // Exibe o erro no alert
+      });
+   
+  
+}
+
+</Script>
