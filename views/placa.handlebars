@@ -11,7 +11,7 @@
     <input type="date" id="inputDataValidade" />
     <div id="buttons">
       <button type="button" onclick="enviarDados()">Gerar Placa</button>
-      <button id="printButton" onclick=" printPdf()">ImprimirPDF</button>
+      <button id="printButton" onclick=" pdf()">Imprimir</button>
       <button onclick="cad()">Cadastro</button>
       <button onclick="sair()">Sair</button>
     </div>
@@ -20,7 +20,7 @@
   <table id="tb">
     <tr id="t0"><th id="a0">Info Impressão</th>
       <td id="b0">dataHora</td></tr>
-    <tr><th id="a1" colspan="2">info</th></tr>
+    <tr id="tr1"><th id="a1" colspan="2">info</th></tr>
     <tr><th id="a2">CÓDIGO DO PRODUTO</th> <th id="b1">MÊS/ANO</th></tr>
     <tr><td id="a3">codint</td>
       <td id="b2" rowspan="8">mes</td></tr>
@@ -50,6 +50,8 @@
       if (!token) {
         console.error("Token não encontrado no localStorage");
         alert("Token não encontrado");
+         window.location = "/";
+
         return;  // Interrompe a execução se o token não for encontrado
       }
 
@@ -77,27 +79,28 @@
           nameElement.textContent = data.user.name;  // Substitui o texto da célula com o valor de data.name
         } else {
           console.error("Elemento ou 'data.name' não encontrado.");
+ 
         }
       })
       .catch(error => {
-        console.error('Erro na requisição:', error);
+       console.error('Erro na requisição:', error);
         alert("Erro: " + error.message);  // Exibe o erro no alert
+ 
       });
     });
   </script>
 
 
 </div>
-<div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-
-</div>
-<Script>
-  
-
-
+ 
+<script>
 async function enviarDados(){
-  const d = document.getElementById("inputDataValidade").value;
+  const loading = document.getElementById("contneinerLoading");
+
+  // Mostrar a animação de carregamento
+  loading.style.display = "flex";
+
+const d = document.getElementById("inputDataValidade").value;
 const n = document.getElementById("inputNumber").value;
 console.log("Elemento Data:", d);
 console.log("Elemento Número:", n);
@@ -156,6 +159,18 @@ console.log("Elemento Número:", n);
         let ano = document.getElementById('b3');
         ano.innerText = data.result.ano;
         
+          // Limitar o conteúdo da div a 24 caracteres
+        const a1 = document.getElementById('a1');
+        let text = a1.innerText || a1.textContent;
+
+        // Limita o texto a 24 caracteres
+        if (text.length > 24 && text.length < 30) {
+          a1.innerText = text.substring(0, 24) + '...';  // Adiciona "..." após 24 caracteres
+        }else{
+           a1.innerText = text.substring(0, 36) + '...'; 
+          a1.style.fontSize = '5em';// Adiciona "..." após 24 caracteres
+        }
+        loading.style.display = "none";
 
       })
       .catch(error => {
@@ -165,5 +180,6 @@ console.log("Elemento Número:", n);
    
   
 }
-
-</Script>
+</script>
+ 
+ 

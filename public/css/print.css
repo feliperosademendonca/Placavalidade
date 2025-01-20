@@ -3,11 +3,13 @@
     margin: 0mm;
   }
 
- 
+
 
   @page {
-    size: A4 landscape; /* Define tamanho A4 em paisagem */
-    margin: 0mm; /* Remove todas as margens padrão */
+    size: A4 landscape;
+    /* Define tamanho A4 em paisagem */
+    margin: 0mm;
+    /* Remove todas as margens padrão */
   }
 
   body {
@@ -45,10 +47,29 @@
     height: auto;
   }
 
+  #tr1 {
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 10px;
+
+  }
+
   #a1 {
-    font-size: 6em;
+    font-size: 8em;
+    background-color: white;
+    max-height: 500px;
     line-height: 0.8;
-    margin: 5px;
+    height: 100%;
+    display: -webkit-box;
+    /* Cria um container flexível */
+    -webkit-box-orient: vertical;
+    /* Define a orientação vertical */
+    -webkit-line-clamp: 2;
+    /* Limita a 2 linhas */
+    overflow: hidden;
+    /* Oculta o conteúdo além do limite */
+    text-overflow: ellipsis;
+    /* Adiciona reticências (...) quando o texto é cortado */
   }
 
   #a2,
@@ -58,9 +79,9 @@
     color: #fff;
   }
 
-#a6{
-  transform: scaleX(7);
-}
+  #a6 {
+    transform: scaleX(7);
+  }
 
   footer {
     display: none;

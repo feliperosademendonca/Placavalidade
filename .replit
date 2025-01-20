@@ -1,4 +1,4 @@
-modules = ["nodejs-20", "web"]
+modules = ["nix", "nodejs-20", "web"]
 run = "npm run dev"
 
 [nix]

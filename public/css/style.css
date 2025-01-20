@@ -1,8 +1,9 @@
 @font-face {
   font-family: 'ean13';
   src: url('fonts/ean13.woff') format('woff'),
-       url('fonts/ean13.ttf') format('truetype');
-  font-weight: normal; /* Ou 'bold' se necessário */
+    url('fonts/ean13.ttf') format('truetype');
+  font-weight: normal;
+
 }
 
 * {
@@ -53,7 +54,7 @@ form {
 
 #u,
 #s {
-   text-align: center;
+  text-align: center;
 }
 
 #btnLogin,
@@ -96,7 +97,7 @@ button {
   margin: auto;
 }
 
-#buttons > button {
+#buttons>button {
   max-width: 150px;
   margin: 5px;
   align-items: center;
@@ -128,7 +129,7 @@ button {
   margin-top: 2%;
 }
 
-#inputForm > button {
+#inputForm>button {
   margin-top: 5%;
   height: 30px;
   width: 100px;
@@ -185,28 +186,29 @@ th {
   font-weight: bold;
 }
 
- 
+
 
 #b2 {
   width: 800px;
   font-size: 10em;
   font-weight: bold;
 }
+
 #b3 {
   font-size: 2em;
   font-weight: bold;
 }
 
- #a6{
-  transform: scaleX(4);
+#a6 {
+  transform: scaleX(8);
 
- }
+}
 
 .libre-barcode-ean13-text-regular {
   font-family: "Libre Barcode EAN13 Text", system-ui;
   font-weight: 400;
   font-style: normal;
- }
+}
 
 #dataValidade {
   font-size: 4em;
