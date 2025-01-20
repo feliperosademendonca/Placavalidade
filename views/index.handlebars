@@ -22,7 +22,7 @@
      // Obtém os valores de login do formulário
      const u = document.getElementById("u").value;
      const s = document.getElementById("s").value;
-     alert('u:'+u+',s: '+s)
+   //  alert('u:'+u+',s: '+s)
      // Requisição de login
      fetch("/login", {
        method: "post",
@@ -44,7 +44,7 @@
            // Requisição para /placa com o JWT
            const token = localStorage.getItem('authToken');
  
-          alert("Login bem-sucedido. Redirecionando '/placa'...");
+        //  alert("Login bem-sucedido. Redirecionando '/placa'...");
            window.location.href = "/placa"; // Redirecionar para a página de login
 
          } else {
