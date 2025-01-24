@@ -19,29 +19,43 @@ body {
   font-size: 16px;
 }
 
-#tudo {
+#tudoIndex {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  align-content: space-around;
+  justify-content: space-around;
+  min-width: 300px;
+
+
+
+}
+
+img {
+  width: 50%;
+  max-width: 500px;
   min-width: 300px;
 }
 
 h1 {
+  font-size: 1.8em;
   background-color: #004080;
   color: #fff;
   text-align: center;
+  width: 100%;
+  min-width: 300px;
 }
 
 #divFormLogin {
-  display: flex;
-  justify-items: center;
+  /* background-color: aqua;*/
   align-items: center;
-  /*background-color: aqua;*/
-  width: 100%;
-  height: 90vh;
-  padding: 5px;
-  top: 5px;
+
+
 }
 
 form {
-  /* background-color: rgb(16, 58, 58);*/
+  /*background-color: rgb(16, 58, 58);*/
   display: flex;
   justify-content: center;
   align-content: center;
@@ -55,6 +69,11 @@ form {
 #u,
 #s {
   text-align: center;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 3px;
+  border: 1px solid#b4cde4;
+  box-shadow: 0px 2px 0px #00000033;
 }
 
 #btnLogin,
@@ -66,7 +85,7 @@ button {
   margin-top: 1em;
   border: #004080 1px solid;
   box-shadow: inset 1px 1px 1px #fff;
-  width: 217px;
+  width: 98%;
   background-color: orange;
   color: #004080;
   text-align: center;
@@ -78,14 +97,15 @@ button {
   font-size: 0.8em;
   padding: 2px;
   margin: auto;
-  margin-top: 7px;
-  border: #ffffff 2px solid;
-  width: 215px;
+  margin-top: 15px;
+  border: orange 1px solid;
+  box-shadow: inset -1px -1px -1px #fff;
+  width: 95%;
   background-color: #004080;
-  color: #fff;
+  color: orange;
   text-align: center;
-  border-radius: 1px;
-  transition: 70ms;
+  border-radius: 3px;
+  transition: 120ms;
 }
 
 #buttons {
@@ -110,6 +130,7 @@ button {
   padding: 5px;
   text-align: center;
 }
+
 
 #inputForm {
   padding: 5%;
