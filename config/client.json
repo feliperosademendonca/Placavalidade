@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "api-130488",
+  "private_key_id": "5e1adc1b68e5f0e90fb554b33074b4d06e2e386a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC3iQdCI/WoiwUG\nLXYfjYXHEAcwEdTK+KRhSzzeRMmUN8pYbnnlMdME3boABQBOpB+15XneUohp/t7v\nZk320mRDBenObLfeOPwFLwERz6nxuM28AsaJ+N2foVYvmiDK/+vphmB+QLIMJBDV\nYr+biIh2AhTMu/LU7wVNZ5/Z1Famf7ijcJ1wB51u+bnP93XeLkQPeAzd4XWyRr+H\nl5diCcz06qG+0R/WUc7TCronXSbRTcqrUe6tEDXYhWRmGe2q6WgZBKVCiKx0f9Xm\nN99nol+CTcIKUvCrsMzg7AvCsGMZ2+PSOeEdCapZ5aAax1hZtczn9IJpWC7nrPwp\nqQYnC4OHAgMBAAECggEAV7lGv13Jssvz1E6RaaZuvUVTci3rrDIo+5oHF2QAh3gd\nHqR7XcmxR1+lYhIB4hS/VWVAGTwQmL0qGHopJKLOKlzesnwzbCOHjgC3/afo3jEL\nIOSgudy6LWzjcXA1YWHuhBlm8KGCmJv6ccu3sqMROnpnL65b9FvkiGlRtb+wxPZy\nuVPeVDOY90bZs5llSkr5Txs81BLmmWQOO6wilS/Brve7q6R8UaCw8BLJlG5uDS/t\n5YtYLyYq5Brxcq+YE9kGdIZdUzxrwZZaB543w3iJdC86w7iJvHbAk9g/U76ouxTo\nLE+87Ilu04GSQy7FB65WP36XM91F/OdqYT+Gza5d7QKBgQDjgxJJ9OW0mVYrT11s\nJhZ3LwF1jhNkzRUwbU0FpcowDpnRuDoIvB2JNzeKcIWFSQUnznyotAdZe+3Y7rTn\n2FEuNOKfX08bka1mSVl0cM+HaF8L7f02UZfSTyHc1MuXm0ZcqxSZL7H50LHmNWRl\n0Aa6Ib01C44Cvp6XZOpMSGvu4wKBgQDOhEbXUce2UCRv+nk8AMkMkZPguATdinge\nlv0WcCOfgkr9EdBZ7qP4IIIMYwEkt3Wx1bu5Y6NcpLlVaIEC7yLlGdLflyH0o8MS\nGVenbEKdvl7D4bxG61G3VVny4K/i38MqT7PVDlo9k+aVZT/WJ7NZH+s8Io43TmWx\nuDiuFUm2DQKBgHyDMFAvakOTo7giQFO+6I6juB24+t4w6wbM2tlbabMxWnePZpt/\nMH73LDtk534Rf3PQqyK9HESZ8YrG4VT9azhpkxl71NSWvpp7TCzQzJMjyNjDj8/Z\nich8rGCqSR4YycJPkv9fPf0lfScrU13xIq1dZ6qPP1I7NppOjXfgLsnXAoGAL5+P\nWo4QWPmIPY5sMKsZsd1MVbD55kDNTHiTKn53qIv6UPuvqV1/0HNmqgaWt+naqUTZ\ngnn4rR+LYae0wIF28ZAP8eG/QdQV4vGXJhOwFQJWhiNjMJOJh5aWJI0t4kqpjfNN\nTB+ALd0Sencbzn3fPPlAXOC3HQfmKaKK55IfKm0CgYAEl1rf0zM/pPX0KbRjiz8L\nJc8sgmiZ9LrY1mOtR5GsL5kI6yYYImsOHZrTLJK85ddVV8DkDObpJHc7kPhst9EI\ncBh66RGN7i8ENRtLRxMiEfltKiUR9uch2fpVuvGKc1Nnd5oV9s2AuscTGnwyX65w\nCcQGQdBE4l3w0qAHSDeZlA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "conta-de-servis-goggles-sheets@api-130488.iam.gserviceaccount.com",
+  "client_id": "101563662781950923096",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/conta-de-servis-goggles-sheets%40api-130488.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

@@ -1,33 +1,30 @@
 const { google } = require("googleapis");
+const sheets = google.sheets("v4");
 const fs = require("fs");
 
-// Carregar as credenciais do cliente
-const credentials = JSON.parse(fs.readFileSync("../config/client-api.json"));
-console.log(credentials);
-const { client_id, client_secret, redirect_uris } =
-  credentials.installed || credentials.web;
-
-// Configurar OAuth2
-const oAuth2Client = new google.auth.OAuth2(
-  client_id,
-  client_secret,
-  redirect_uris[0],
+// Carregar o arquivo de credenciais
+const credentials = JSON.parse(
+  fs.readFileSync("../config/client.json", "utf-8"),
 );
 
-// Gerar URL para autenticação
-const authUrl = oAuth2Client.generateAuthUrl({
-  access_type: "offline",
-  scope: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
+// Autenticação com Service Account
+const auth = new google.auth.GoogleAuth({
+  credentials,
+  scopes: ["https://www.googleapis.com/auth/spreadsheets"],
 });
 
-console.log("Authorize this app by visiting this URL:", authUrl);
+async function accessSpreadsheet() {
+  const client = await auth.getClient();
+  const spreadsheetId = "1BHYVzvYN9qSgtVzvBmL2Xxo8hHJvc0gniE6wb0LX77s";
+  const range = "banco!A1:A2";
 
-// Depois de obter o código de autorização, troque pelo token de acesso
-async function getAccessToken(code) {
-  const { tokens } = await oAuth2Client.getToken(code);
-  oAuth2Client.setCredentials(tokens);
-  fs.writeFileSync("token.json", JSON.stringify(tokens));
-  console.log("Token armazenado em token.json");
+  const response = await sheets.spreadsheets.values.get({
+    auth: client,
+    spreadsheetId,
+    range,
+  });
+
+  console.log("Dados:", response.data);
 }
 
-module.exports = oAuth2Client;
+accessSpreadsheet().catch(console.error);
