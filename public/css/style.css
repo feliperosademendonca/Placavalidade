@@ -19,6 +19,25 @@ body {
   font-size: 16px;
 }
 
+
+
+#bodyIndex {
+  background-image: url(https://www.economart.com.br/wp-content/uploads/2020/12/Pocos-de-caldas-8.jpg);
+  background-position: bottom;
+
+  display: flex;
+  justify-content: center;
+  /* Alinha horizontalmente */
+  align-items: center;
+  /* Alinha verticalmente */
+  min-height: 100vh;
+  /* Garante que ocupe toda a altura da janela */
+  margin: 0;
+  /* Remove a margem padrão */
+
+
+}
+
 #tudoIndex {
   display: flex;
   flex-direction: column;
@@ -27,9 +46,20 @@ body {
   align-content: space-around;
   justify-content: space-around;
   min-width: 300px;
+}
 
-
-
+#divLogo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  background-color: #fff;
+  height: 90px;
+  border-radius: 5px 5px 0px 0px;
+  border-top: 1px solid #2229;
+  margin-bottom: 5px;
 }
 
 img {
@@ -48,10 +78,14 @@ h1 {
 }
 
 #divFormLogin {
-  /* background-color: aqua;*/
-  align-items: center;
-
-
+  background-color: #fff2;
+  justify-content: center;
+  /* Alinha horizontalmente */
+  width: 400px;
+  height: 300px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 5px #000f;
+  backdrop-filter: blur(3px);
 }
 
 form {
@@ -60,19 +94,17 @@ form {
   justify-content: center;
   align-content: center;
   flex-direction: column;
-  width: 320px;
   min-width: 320px;
-  margin: auto;
   text-align: center;
 }
 
 #u,
 #s {
   text-align: center;
-  padding: 5px;
-  margin: 5px;
+  padding: 10px;
+  margin: 10px;
   border-radius: 3px;
-  border: 1px solid#b4cde4;
+  border: 1px solid#004080;
   box-shadow: 0px 2px 0px #00000033;
 }
 
@@ -80,13 +112,14 @@ form {
 button {
   font-size: 1em;
   font-weight: bolder;
-  padding: 3px;
-  margin: auto;
+  padding: 10px;
+  margin: 10px;
   margin-top: 1em;
   border: #004080 1px solid;
   box-shadow: inset 1px 1px 1px #fff;
-  width: 98%;
-  background-color: orange;
+  background: linear-gradient(45deg, orange, #ffbc57, #cc8f1e);
+  /* Gradiente de laranja para uma cor mais clara de laranja */
+
   color: #004080;
   text-align: center;
   border-radius: 3px;
@@ -100,7 +133,7 @@ button {
   margin-top: 15px;
   border: orange 1px solid;
   box-shadow: inset -1px -1px -1px #fff;
-  width: 95%;
+  width: 99%;
   background-color: #004080;
   color: orange;
   text-align: center;
@@ -240,7 +273,7 @@ footer {
   position: fixed;
   left: 50%;
   transform: translate(-40%);
-  opacity: 20%;
+  opacity: 40%;
   bottom: 5px;
   font-size: 0.8em;
   text-align: center;
@@ -256,3 +289,37 @@ footer:hover {
   text-align: center;
   transition: 500ms ease;
 }
+
+
+#contneinerLoading {
+  position: absolute;
+  display: flex;
+  background-color: #004080bc;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+}
+
+#loading {
+  width: 30%;
+  position: absolute;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
