@@ -50,9 +50,8 @@
 
   #u,
   #s,
- 
-  #inputInfo
-   {
+
+  #inputInfo {
     padding: 3px;
     margin: auto;
     margin-top: 5px;
@@ -92,7 +91,7 @@
   }
 
 
-  
+
 
   #loginForm input {
     margin: 4px;
@@ -108,9 +107,8 @@
     justify-content: center;
     /*border: #004080 1px solid;*/
   }
- /
 
-  #inputForm>button {
+  / #inputForm>button {
     width: 100px;
     justify-content: space-around;
   }

@@ -19,20 +19,22 @@ body {
   background-color: #8dbbe8;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 16px;
+  height: 94%;
+  width: 100%;
 }
 
 
 
 #bodyIndex {
-  background-image: url(https://www.economart.com.br/wp-content/uploads/2020/12/Pocos-de-caldas-8.jpg);
-  background-position: bottom;
-
+  background-image: url("/img/bg.jpg");
+  background-position: top;
   display: flex;
   justify-content: center;
+
   /* Alinha horizontalmente */
   align-items: center;
   /* Alinha verticalmente */
-  min-height: 100vh;
+  height: 95vh;
   /* Garante que ocupe toda a altura da janela */
   margin: 0;
   /* Remove a margem padrão */
@@ -45,8 +47,8 @@ body {
   flex-direction: column;
   justify-items: center;
   align-items: center;
-  align-content: space-around;
-  justify-content: space-around;
+  align-content: center;
+  justify-content: center;
   min-width: 300px;
 }
 
@@ -60,7 +62,7 @@ body {
   background-color: #fff;
   height: 90px;
   border-radius: 5px 5px 0px 0px;
-  border-top: 1px solid #2229;
+  border-top: 1px solid #2224;
   margin-bottom: 5px;
 }
 
@@ -68,12 +70,20 @@ body {
   width: 60%
 }
 
+#loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+}
+
 #conteinerUSer,
 #conteinerSenha {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 100%;
 }
 
 #iconUser {
@@ -93,14 +103,16 @@ h1 {
 }
 
 #divFormLogin {
+  display: flex;
   background-color: #fff2;
   justify-content: center;
-  /* Alinha horizontalmente */
   width: 400px;
   height: 300px;
+  margin: 5px;
   border-radius: 5px;
-  box-shadow: 0px 1px 5px #000f;
+  box-shadow: 1px 1px 5px #000f;
   backdrop-filter: blur(3px);
+  flex-direction: column;
 }
 
 divFormPlaca {
@@ -144,6 +156,7 @@ button {
   color: #004080;
   text-align: center;
   border-radius: 3px;
+  width: 80%;
 }
 
 
@@ -181,6 +194,17 @@ button {
   justify-items: center;
 }
 
+#loginFrom {
+  /* background-color: rgb(16, 58, 58); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: auto;
+
+}
+
 ::placeholder {
   padding: 5px;
   text-align: center;
@@ -188,6 +212,7 @@ button {
 
 #inputNumber,
 #inputDataValidade {
+
   width: 50%;
   padding: 5px;
   margin-top: 10px;
@@ -199,7 +224,6 @@ button {
 #inputForm>button {
   margin-top: 5%;
   height: 30px;
-  width: 100px;
   justify-content: space-around;
 }
 
@@ -220,8 +244,6 @@ thead {
   border: 1px solid #000;
   gap: 0px;
   border-collapse: collapse;
-  margin: 0px;
-  height: 0px;
 }
 
 /*estilo tabela*/
@@ -239,7 +261,7 @@ th {
 }
 
 #a1 {
-  font-size: 8em;
+  font-size: 6em;
   background-color: white;
   max-height: 500px;
   line-height: 0.8;
@@ -265,15 +287,26 @@ th {
   font-weight: bold;
 }
 
-#a6 {
-  transform: scaleX(8);
 
-}
 
 .libre-barcode-ean13-text-regular {
   font-family: "Libre Barcode EAN13 Text", system-ui;
-  font-weight: 400;
-  font-style: normal;
+  font-weight: 500;
+  font-size: 50px;
+  /* Tamanho da fonte */
+  height: 20px;
+  /* Tamanho fixo da altura da div */
+  width: 80%;
+  /* Ou ajuste a largura conforme necessário */
+
+  overflow: hidden;
+  /* Esconde o conteúdo que ultrapassar a altura */
+  white-space: nowrap;
+  /* Impede a quebra de linha */
+  text-overflow: ellipsis;
+  /* Adiciona "..." no final se o conteúdo for muito grande */
+
+
 }
 
 #dataValidade {

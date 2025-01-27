@@ -45,7 +45,7 @@
 </div
   <!--Scripts-->
 <div>
-  <script>
+  <script> 
     // Quando o DOM estiver completamente carregado, executa a função
     document.addEventListener('DOMContentLoaded', () => {
       const token = localStorage.getItem('authToken');
@@ -59,6 +59,27 @@
         return;  // Interrompe a execução se o token não for encontrado
       }
 
+       
+      const inputs = document.querySelectorAll('input');
+
+      inputs.forEach((input, index) => {
+        input.addEventListener('keydown', function(event) {
+          if (event.key === 'Enter') {
+            event.preventDefault(); // Bloqueia o comportamento padrão do Enter
+            console.log('Código escaneado:', input.value);
+
+            // Move para o próximo campo, se houver
+            const proximoInput = inputs[index + 1];
+            if (proximoInput) {
+              proximoInput.focus();
+            } else {
+              console.log('Último campo atingido!');
+            }
+          }
+        });
+      });
+       
+       
       // Faz a requisição após o carregamento do DOM
       fetch('/placa', {
         method: 'POST',
@@ -184,6 +205,8 @@ console.log("Elemento Número:", n);
    
   
 }
-</script>
+
  
+   
+</script>
  
