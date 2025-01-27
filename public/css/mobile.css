@@ -50,11 +50,9 @@
 
   #u,
   #s,
-  #inputEan,
-  #inputCodInt,
-  #inputInfo,
-  #InputdataValidade,
-  #inputNumber {
+ 
+  #inputInfo
+   {
     padding: 3px;
     margin: auto;
     margin-top: 5px;
@@ -93,13 +91,8 @@
     text-align: center;
   }
 
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    /* Remove a aparência padrão do navegador */
-    appearance: none;
-    /* Remove a aparência padrão do navegador */
-  }
+
+  
 
   #loginForm input {
     margin: 4px;
@@ -115,16 +108,7 @@
     justify-content: center;
     /*border: #004080 1px solid;*/
   }
-
-  /*#InputdataValidade,
-  #inputNumber {
-    width: 300px;
-    display: block;
-    font-weight: bold;
-    height: 30px;
-    padding: 0px;
-    text-align: center;
-  }*/
+ /
 
   #inputForm>button {
     width: 100px;
@@ -157,11 +141,11 @@
   }
 
   #b2 {
-    font-size: 10em;
+    font-size: 2em;
   }
 
   #b3 {
-    font-size: 3em;
+    font-size: 2em;
   }
 
 
@@ -201,4 +185,3 @@
       transform: rotate(360deg);
     }
   }
-}

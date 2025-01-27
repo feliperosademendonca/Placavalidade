@@ -1,7 +1,9 @@
 <title>Placa de Validade RM / Placa</title>
 <div id="tudo">
 
-  <form id="inputForm">
+  <form id="formPesquisa">
+    
+    <div id="divInputsPlaca"> 
     <input
       type="number"
       id="inputNumber"
@@ -9,12 +11,14 @@
       placeholder="EAN ou Código Interno"
     />
     <input type="date" id="inputDataValidade" />
+    </div>
     <div id="buttons">
       <button type="button" onclick="enviarDados()">Gerar Placa</button>
       <button id="printButton" onclick=" pdf()">Imprimir</button>
       <button onclick="cad()">Cadastro</button>
       <button onclick="sair()">Sair</button>
     </div>
+    
   </form>
 
   <table id="tb">

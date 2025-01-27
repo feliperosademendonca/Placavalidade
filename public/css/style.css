@@ -11,6 +11,8 @@
   padding: 0px;
   box-sizing: border-box;
   text-transform: uppercase;
+  overflow-x: hidden;
+
 }
 
 body {
@@ -81,21 +83,6 @@ body {
   margin-left: 15px;
 }
 
-
-
-#loginForm input {
-   width: 95%
-}
-
-#inputForm {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  align-items: center;
-  justify-content: center;
-  /*border: #004080 1px solid;*/
-}
-
 h1 {
   font-size: 1.8em;
   background-color: #004080;
@@ -116,7 +103,10 @@ h1 {
   backdrop-filter: blur(3px);
 }
 
-
+divFormPlaca {
+  width: 80%;
+  max-width: 800px;
+}
 
 
 form {
@@ -176,7 +166,6 @@ button {
 
 #buttons {
   display: inline-block;
-  max-width: 350px;
   min-width: 330px;
   max-width: 350px;
   margin-top: 10px;
@@ -197,24 +186,15 @@ button {
   text-align: center;
 }
 
-
-#inputForm {
-  padding: 5%;
-  font-size: 1.1em;
+#inputNumber,
+#inputDataValidade {
+  width: 50%;
+  padding: 5px;
+  margin-top: 10px;
+  font-size: 1.2em;
+  text-align: center;
 }
 
-#eanOuCodigo {
-  margin: auto;
-  height: 30px;
-  border-radius: 3px;
-}
-
-#InputdataValidade,
-#eanOuCodigo {
-  display: block;
-  height: 30px;
-  margin-top: 2%;
-}
 
 #inputForm>button {
   margin-top: 5%;
@@ -276,8 +256,7 @@ th {
 
 
 #b2 {
-  width: 800px;
-  font-size: 10em;
+  font-size: 2em;
   font-weight: bold;
 }
 
@@ -356,3 +335,4 @@ footer:hover {
   to {
     transform: rotate(360deg);
   }
+}
