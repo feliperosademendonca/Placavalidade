@@ -15,11 +15,9 @@
     align-items: center;
     align-content: center;
     /*background-color: aqua;*/
-    width: 100%;
-    height: 90vh;
-    padding: 5px;
-    top: 5px;
-    min-width: 350px;
+    width: 80%;
+    height: 90%;
+    min-width: 320px;
   }
 
   form {
@@ -30,14 +28,14 @@
     align-items: center;
     align-content: center;
     margin: auto;
-    height: 30vh;
-    padding: 0px;
+
   }
 
-  #tudo > #divFormCadastro {
+  #tudo>#divFormCadastro {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Espaço igual entre os botões */
+    justify-content: space-between;
+    /* Espaço igual entre os botões */
     min-width: 350px;
   }
 
@@ -45,10 +43,11 @@
     display: flex;
     flex-direction: column;
     align-content: center;
-    justify-content: space-between; /* Espaço igual entre os botões */
+    justify-content: space-between;
+    /* Espaço igual entre os botões */
     min-width: 350px;
   }
-  
+
   #u,
   #s,
   #inputEan,
@@ -64,6 +63,9 @@
     padding: 5px;
   }
 
+  form button {
+    width: 95%;
+  }
 
   /*
   #u,
@@ -74,17 +76,16 @@
 
   #btnLogin:active {
     display: block;
-    font-size: 0.9em;
-    padding: 1px;
-    margin: auto;
-    margin-top: 2px;
-    border: #ffffff 2px solid;
-    width: 215px;
+    ;
+    padding: 2px;
+    border: orange 1px solid;
+    box-shadow: inset -1px -1px -1px #fff;
+    width: 83%;
     background-color: #004080;
-    color: #fff;
+    color: orange;
     text-align: center;
-    border-radius: 1px;
-    transition: 70ms;
+    border-radius: 3px;
+    transition: 120ms;
   }
 
   ::placeholder {
@@ -94,15 +95,16 @@
 
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none; /* Remove a aparência padrão do navegador */
-    appearance: none; /* Remove a aparência padrão do navegador */
-   }
+    -webkit-appearance: none;
+    /* Remove a aparência padrão do navegador */
+    appearance: none;
+    /* Remove a aparência padrão do navegador */
+  }
 
-  form input{
+  #loginForm input {
     margin: 4px;
     padding: 10px;
-    width: 217px;
-
+    width: 95%
   }
 
   #inputForm {
@@ -124,9 +126,9 @@
     text-align: center;
   }*/
 
-  #inputForm > button {
+  #inputForm>button {
     width: 100px;
-     justify-content: space-around;
+    justify-content: space-around;
   }
 
   #buttons {
@@ -139,7 +141,7 @@
     margin: 5px;
   }
 
-  tr > #a1 {
+  tr>#a1 {
     font-size: 1.3em;
     width: 100vw;
     height: 40px;
@@ -157,16 +159,17 @@
   #b2 {
     font-size: 10em;
   }
+
   #b3 {
     font-size: 3em;
   }
 
-  
+
   footer {
     opacity: 10%;
   }
-  
- #contneinerLoading {
+
+  #contneinerLoading {
     position: absolute;
     display: flex;
     background-color: #004080bc;
@@ -186,13 +189,14 @@
     align-items: center;
     justify-content: center;
     z-index: 1000;
-     animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
   }
-  
+
   @keyframes spin {
     from {
       transform: rotate(0deg);
     }
+
     to {
       transform: rotate(360deg);
     }

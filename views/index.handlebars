@@ -5,11 +5,19 @@
  
   <div id="divFormLogin">
    <div id="divLogo"> 
-    <img src="./img/logo.png">
+  
+     
+    <img src="./img/logo.png"  id="logo">
    </div>
     <form id="loginForm" onsubmit="return false;">
-      <input type="text" id="u" placeholder="NOME" />
-      <input type="password" name="" id="s" placeholder="SENHA" />
+      <div id="conteinerUSer">
+        <img src="./img/user.png" id="iconUser"/>
+        <input type="text" id="u" placeholder="NOME" />
+      </div>
+      <div id="conteinerSenha">
+        <img src="./img/locked.png" id="iconUser"/>
+        <input type="password" name="" id="s" placeholder="SENHA" />
+      </div>
       <button type="submit" onclick="login()" id="btnLogin">LOGIN</button>
     </form>
   </div>
