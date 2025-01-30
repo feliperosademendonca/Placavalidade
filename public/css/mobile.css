@@ -8,6 +8,16 @@
     background-color: white;
   }
 
+  #formPesquisa {
+    padding: 20px;
+    background-color: #fff0;
+
+
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
+  }
+
   #divFormLogin {
     display: flex;
     flex-direction: column;

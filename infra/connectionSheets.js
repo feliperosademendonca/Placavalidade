@@ -3,9 +3,7 @@ const sheets = google.sheets("v4");
 const fs = require("fs");
 
 // Carregar o arquivo de credenciais
-const credentials = JSON.parse(
-  fs.readFileSync("../config/client.json", "utf-8"),
-);
+const credentials = JSON.parse(fs.readFileSync("../config/client.json"));
 
 // Autenticação com Service Account
 const auth = new google.auth.GoogleAuth({
