@@ -3,7 +3,7 @@
 
   <form id="formPesquisa">
     
-    <div id="divInputsPlaca"> 
+    
     <input
       type="number"
       id="inputNumber"
@@ -11,13 +11,13 @@
       placeholder="EAN ou Código Interno"
     />
     <input type="date" id="inputDataValidade" />
-    </div>
-    <div id="buttons">
+     
+     
       <button type="button" onclick="enviarDados()">Gerar Placa</button>
       <button id="printButton" onclick=" pdf()">Imprimir</button>
-      <button onclick="cad()">Cadastro</button>
-      <button onclick="sair()">Sair</button>
-    </div>
+      <!--<button onclick="cad()">Cadastro</button>
+      <button onclick="sair()">Sair</button>-->
+ 
     
   </form>
 
@@ -119,92 +119,77 @@
 </div>
  
 <script>
-async function enviarDados(){
-  const loading = document.getElementById("contneinerLoading");
+  async function enviarDados() {
+    const loading = document.getElementById("contneinerLoading");
 
-  // Mostrar a animação de carregamento
-  loading.style.display = "flex";
+    const d = document.getElementById("inputDataValidade").value.trim();
+    const n = document.getElementById("inputNumber").value.trim();
 
-const d = document.getElementById("inputDataValidade").value;
-const n = document.getElementById("inputNumber").value;
-console.log("Elemento Data:", d);
-console.log("Elemento Número:", n);
- // Mostrar a animação de carregamento
-  loading.style.display = "flex";
+    console.log("Elemento Data:", d);
+    console.log("Elemento Número:", n);
 
-  if(n==""|| d== ""){
-    return alert("Verifique os dados informados")
-  }
-  const token = localStorage.getItem('authToken');
-   fetch('/placa/pesquisa', {
-        method: 'POST',
+    // Validação antes de ativar o carregamento
+    if (!n || !d) {
+      alert("Verifique os dados informados");
+      return;
+    }
+
+    loading.style.display = "flex"; // Exibe a animação de carregamento
+
+    try {
+      const token = localStorage.getItem("authToken");
+      const response = await fetch("/placa/pesquisa", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': "Bearer " + token
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
         },
-                  body: JSON.stringify({ d, n }) // Envia os dados ao servidor
-
-      })
-      .then(response => {
-        console.log('Status da resposta:', response.status);
-        if (!response.ok) {  // Se a resposta não for OK, rejeita com erro
-          throw new Error('Erro na requisição com status: ' + response.status);
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log('Resposta do servidor:', data);
-
-        // Aqui é onde o nome será inserido na célula da tabela
-        const nameElement = document.getElementById('a14');
-        if (nameElement && data.user.name) {
-          nameElement.textContent = data.user.name;  // Substitui o texto da célula com o valor de data.name
-        } else {
-          console.error("Elemento ou 'data.name' não encontrado.");
-        }
-
-        console.log("\n",data.result.info,"\n")
-
-        let info = document.getElementById('a1');
-        info.innerText = data.result.info;
-        let codint = document.getElementById('a3');
-        codint.innerText = data.result.codint;
-        let ean = document.getElementById('a5');
-        ean.innerText = data.result.ean;
-        let codBarras = document.getElementById('a6');
-        codBarras.innerText = data.result.ean;
-        let dataRecebimento = document.getElementById('a8');
-        dataRecebimento.innerText = data.result.dataRecebimento;
-        let dataValidade = document.getElementById('dataValidade');
-        dataValidade.innerText = data.result.dataValidade;
-        let diasParaVencer = document.getElementById('a12');
-        diasParaVencer.innerText = data.result.diasParaVencer;
-        let dia = document.getElementById('b2');
-        dia.innerText = data.result.dia;
-        let ano = document.getElementById('b3');
-        ano.innerText = data.result.ano;
-        
-          // Limitar o conteúdo da div a 24 caracteres
-        const a1 = document.getElementById('a1');
-        let text = a1.innerText || a1.textContent;
-
-        // Limita o texto a 24 caracteres
-        if (text.length > 24 && text.length < 30) {
-          a1.innerText = text.substring(0, 24) + '...';  // Adiciona "..." após 24 caracteres
-        }else{
-           a1.innerText = text.substring(0, 36) + '...'; 
-          a1.style.fontSize = '5em';// Adiciona "..." após 24 caracteres
-        }
-        loading.style.display = "none";
-
-      })
-      .catch(error => {
-        console.error('Erro na requisição:', error);
-        alert("Erro: " + error.message);  // Exibe o erro no alert
+        body: JSON.stringify({ d, n }), // Envia os dados ao servidor
       });
-   
-  
-}
+
+      console.log("Status da resposta:", response.status);
+      if (!response.ok) {
+        throw new Error("Erro na requisição com status: " + response.status);
+      }
+
+      const data = await response.json();
+      console.log("Resposta do servidor:", data);
+
+      // Atualiza os elementos do DOM com os dados recebidos
+      const updateElement = (id, value) => {
+        const element = document.getElementById(id);
+        if (element) element.innerText = value || "N/A";
+      };
+
+      if (data.user?.name) {
+        updateElement("a14", data.user.name);
+      }
+
+      updateElement("a1", data.result.info);
+      updateElement("a3", data.result.codint);
+      updateElement("a5", data.result.ean);
+      updateElement("a6", data.result.ean);
+      updateElement("a8", data.result.dataRecebimento);
+      updateElement("dataValidade", data.result.dataValidade);
+      updateElement("a12", data.result.diasParaVencer);
+      updateElement("b2", data.result.dia);
+      updateElement("b3", data.result.ano);
+
+      // Tratamento para limitar o conteúdo da div a 24 caracteres
+      const a1 = document.getElementById("a1");
+      let text = a1.innerText || a1.textContent;
+
+      if (text.length > 24) {
+        a1.innerText = text.substring(0, text.length > 30 ? 36 : 24) + "...";
+        a1.style.fontSize = text.length > 30 ? "5em" : "inherit";
+      }
+    } catch (error) {
+      console.error("Erro na requisição:", error);
+      alert("Erro: " + error.message);
+    } finally {
+      loading.style.display = "none"; // Oculta o loading mesmo em caso de erro
+    }
+  }
 
  
    

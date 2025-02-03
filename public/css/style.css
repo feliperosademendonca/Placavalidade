@@ -116,32 +116,32 @@ h1 {
 }
 
 #formPesquisa {
-
+  display: flex;
   padding: 20px;
   background-color: #fff;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+  justify-content: space-around;
 
 }
 
 
-#formPesquisa {
-  width: 78%;
-  padding: 20px;
-  background-color: #fff;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
 
-}
 
 form {
   /*background-color: rgb(16, 58, 58);*/
   display: flex;
+  padding: 20px;
+  min-width: 350px;
+  max-width: 600px;
+  height: 230px;
+  background-color: #fff;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  align-items: center;
   justify-content: center;
   align-content: center;
-  flex-direction: column;
-  min-width: 320px;
-  text-align: center;
+  flex-direction: row;
 }
 
 #u,
@@ -159,8 +159,6 @@ button {
   font-size: 1em;
   font-weight: bolder;
   padding: 10px;
-  margin: 10px;
-  margin-top: 1em;
   border: #004080 1px solid;
   box-shadow: inset 1px 1px 1px #fff;
   background: linear-gradient(45deg, orange, #ffbc57, #cc8f1e);
@@ -227,10 +225,9 @@ button {
 #inputNumber,
 #inputDataValidade {
 
-  width: 50%;
+  width: 95%;
   padding: 5px;
-  margin-top: 10px;
-  font-size: 1.2em;
+  font-size: 1.4em;
   text-align: center;
 }
 

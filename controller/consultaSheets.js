@@ -4,7 +4,7 @@ const fs = require("fs");
 
 // Carregar as credenciais
 const credentials = JSON.parse(
-  fs.readFileSync("../config/client.json", "utf-8"),
+  fs.readFileSync("./config/client.json", "utf-8"),
 );
 
 // Autenticação com Service Account
