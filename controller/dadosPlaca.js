@@ -2,9 +2,9 @@ module.exports = async (req, res) => {
   const { n, d } = req.body;
 
   const inputValor = n;
-  console.log(`Valor recebido do usuário: ${inputValor}`);
-  
   const dataValidade = d;
+
+  console.log(`Valor recebido do usuário: ${inputValor}`);
   console.log(`Data recebida do usuário: ${dataValidade}`);
   const processarDatas = require("./date");
   const datas = processarDatas(dataValidade);
@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
 
   async function consultarBanco(inputValor) {
     const pool = require("../infra/conectionDatabase");
-    const client = pool.connect();
+    const client = await pool.connect();
     try {
       let query;
       if (inputValor.length > 5) {

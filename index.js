@@ -61,36 +61,34 @@ app.post("/placa", loginController.checkLoginStatus, (req, res) => {
   return res.json({ user: req.user });
 });
 
-// Rota placaPOST
-app.post(
-  "/placa/pesquisa",
-  loginController.checkLoginStatus,
-  async (req, res) => {
-    try {
-      const dadosPlaca = require("./controller/dadosPlaca");
-      let result = await dadosPlaca(req, res);
-      // Verifique se o resultado não é undefined ou null antes de enviar a resposta
-      if (!result) {
-        return res.status(404).json({ error: "Resultado não encontrado" });
-      }
 
-      // Envia a resposta apenas uma vez
-      res.json({ user: req.user, result: result });
-    } catch (error) {
-      // Se houver erro, envia a resposta com um código de erro
-      console.error(error);
-      res.status(500).json({ error: "Erro no servidor" });
+// Rota placaPOST
+app.post("/placa/pesquisa", loginController.checkLoginStatus, async (req, res) => {
+  try {
+    const dadosPlaca = require ('./controller/dadosPlaca')
+    let result = await dadosPlaca(req,res) 
+    // Verifique se o resultado não é undefined ou null antes de enviar a resposta
+    if (!result) {
+      return res.status(404).json({ error: 'Resultado não encontrado' });
     }
-  },
-);
+
+    // Envia a resposta apenas uma vez
+    res.json({ user: req.user, result: result });
+
+  } catch (error) {
+    // Se houver erro, envia a resposta com um código de erro
+    console.error(error);
+    res.status(500).json({ error: 'Erro no servidor' });
+  }
+}); 
 
 // Rota cadastroGET
 app.get("/cadastro", loginController.checkLoginStatus, (req, res) => {
   res.render("cadastro", { username: res.locals.username });
 });
 
-app.get("/teste", (req, res) => {
-  res.render("teste");
+ app.get("/teste",   (req, res) => {
+  res.render("teste" );
 });
 
 // Rota cadastroPOST
@@ -125,6 +123,8 @@ app.post(
 app.get("/sair", loginController.checkLoginStatus, (req, res) => {
   console.log("chamou a rota sair");
   console.log("Antes de destruir a sessão:", req.session);
+
+   
 });
 
 // Rota para endereço público
